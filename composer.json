@@ -1,0 +1,6 @@
+{
+    "require-dev": {
+        "behat/behat": "^3.7.0",
+        "diffywebsite/diffy-php": "1.x-dev"
+    }
+}

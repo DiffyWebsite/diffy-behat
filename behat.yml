@@ -1,0 +1,8 @@
+default:
+  suites:
+    default:
+      paths:
+        features: features/
+        bootstrap: features/bootstrap/
+      contexts:
+        - DiffyContext
