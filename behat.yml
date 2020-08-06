@@ -1,8 +1,15 @@
 default:
-  suites:
-    default:
-      paths:
-        features: features/
-        bootstrap: features/bootstrap/
-      contexts:
-        - DiffyContext
+  context:
+    class: DiffyContext
+    parameters:
+      projectId: 2947
+      apiKey: 68171ec1ecc9f82210ffbf4a90438104
+      screenshotsDir: screenshots
+  extensions:
+    Behat\MinkExtension\Extension:
+      base_url: https://en.wikipedia.org
+      goutte: ~
+      javascript_session: selenium2
+      browser_name: chrome
+      selenium2:
+        wd_host: "http://localhost:4444/wd/hub"
