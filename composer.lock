@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4018ead23a6bf58e309ee0e5612264b3",
+    "content-hash": "cc381ac70c0656e5b0812e37a8b5736f",
     "packages": [
         {
             "name": "behat/behat",
@@ -420,12 +420,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/DiffyWebsite/diffy-php.git",
-                "reference": "2d7deeed1b6db4b9f7861ba2e4153b73acb2c0f8"
+                "reference": "aa5c5411f5ecedda4761f3ef6eff89847662a365"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/DiffyWebsite/diffy-php/zipball/2d7deeed1b6db4b9f7861ba2e4153b73acb2c0f8",
-                "reference": "2d7deeed1b6db4b9f7861ba2e4153b73acb2c0f8",
+                "url": "https://api.github.com/repos/DiffyWebsite/diffy-php/zipball/aa5c5411f5ecedda4761f3ef6eff89847662a365",
+                "reference": "aa5c5411f5ecedda4761f3ef6eff89847662a365",
                 "shasum": ""
             },
             "require": {
@@ -455,7 +455,7 @@
                 "diffy-php",
                 "drupal"
             ],
-            "time": "2020-08-05T14:23:29+00:00"
+            "time": "2020-08-11T12:15:44+00:00"
         },
         {
             "name": "fabpot/goutte",
@@ -1710,7 +1710,7 @@
         },
         {
             "name": "symfony/polyfill-ctype",
-            "version": "v1.18.0",
+            "version": "v1.18.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-ctype.git",
@@ -1772,16 +1772,16 @@
         },
         {
             "name": "symfony/polyfill-intl-idn",
-            "version": "v1.18.0",
+            "version": "v1.18.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-intl-idn.git",
-                "reference": "bc6549d068d0160e0f10f7a5a23c7d1406b95ebe"
+                "reference": "5dcab1bc7146cf8c1beaa4502a3d9be344334251"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-intl-idn/zipball/bc6549d068d0160e0f10f7a5a23c7d1406b95ebe",
-                "reference": "bc6549d068d0160e0f10f7a5a23c7d1406b95ebe",
+                "url": "https://api.github.com/repos/symfony/polyfill-intl-idn/zipball/5dcab1bc7146cf8c1beaa4502a3d9be344334251",
+                "reference": "5dcab1bc7146cf8c1beaa4502a3d9be344334251",
                 "shasum": ""
             },
             "require": {
@@ -1839,11 +1839,11 @@
                 "portable",
                 "shim"
             ],
-            "time": "2020-07-14T12:35:20+00:00"
+            "time": "2020-08-04T06:02:08+00:00"
         },
         {
             "name": "symfony/polyfill-intl-normalizer",
-            "version": "v1.18.0",
+            "version": "v1.18.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-intl-normalizer.git",
@@ -1910,7 +1910,7 @@
         },
         {
             "name": "symfony/polyfill-mbstring",
-            "version": "v1.18.0",
+            "version": "v1.18.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-mbstring.git",
@@ -1973,7 +1973,7 @@
         },
         {
             "name": "symfony/polyfill-php70",
-            "version": "v1.18.0",
+            "version": "v1.18.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-php70.git",
@@ -2036,7 +2036,7 @@
         },
         {
             "name": "symfony/polyfill-php72",
-            "version": "v1.18.0",
+            "version": "v1.18.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-php72.git",

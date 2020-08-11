@@ -2,12 +2,14 @@ default:
   context:
     class: DiffyContext
     parameters:
-      projectId: 2947
+      projectId: 2984
       apiKey: 68171ec1ecc9f82210ffbf4a90438104
       screenshotsDir: screenshots
+      breakpoints: [640, 1200]
+      windowHeight: 2000
   extensions:
     Behat\MinkExtension\Extension:
-      base_url: https://en.wikipedia.org
+      base_url: https://diffy.website
       goutte: ~
       javascript_session: selenium2
       browser_name: chrome

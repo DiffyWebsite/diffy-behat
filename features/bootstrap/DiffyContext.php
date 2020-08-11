@@ -15,6 +15,8 @@ class DiffyContext extends MinkContext
     private $projectId;
     private $apiKey;
     private $screenshotsDir;
+    private $breakpoints;
+    private $windowHeight;
     private $createdScreenshotIds = [];
     private $createdDiffIds = [];
 
@@ -29,6 +31,8 @@ class DiffyContext extends MinkContext
         $this->projectId = isset($parameters['projectId']) ? $parameters['projectId'] : null;
         $this->apiKey = isset($parameters['apiKey']) ? $parameters['apiKey'] : null;
         $this->screenshotsDir = isset($parameters['screenshotsDir']) ? $parameters['screenshotsDir'] : null;
+        $this->breakpoints = isset($parameters['breakpoints']) ? $parameters['breakpoints'] : [];
+        $this->windowHeight = isset($parameters['windowHeight']) ? $parameters['windowHeight'] : 1000;
     }
 
     /**
@@ -36,15 +40,33 @@ class DiffyContext extends MinkContext
      */
     public function iResizeWindowTo($breakpoint)
     {
-        $this->getSession()->resizeWindow((int)$breakpoint + self::WINDOW_PADDING, 800);
+        $this->getSession()->resizeWindow((int)$breakpoint + self::WINDOW_PADDING, $this->windowHeight);
     }
 
     /**
-     * Take screenshot.
+     * Take screenshots for all breakpoints provided in behat.yml
      *
-     * @Then /^I take screenshot for diffy with URI "([^"]*)"$/
+     * @Then /^I take screenshots for all breakpoints$/
      */
-    public function iTakeScreenshot($diffyUri)
+    public function iTakeScreenshotsForAllBreakpoints()
+    {
+        $driver = $this->getSession()->getDriver();
+        if (!($driver instanceof \Behat\Mink\Driver\Selenium2Driver)) {
+            return;
+        }
+
+        foreach ($this->breakpoints as $breakpoint) {
+            $this->iResizeWindowTo($breakpoint);
+            $this->iTakeScreenshot();
+        }
+    }
+
+    /**
+     * Take one screenshot.
+     *
+     * @Then /^I take screenshot$/
+     */
+    public function iTakeScreenshot()
     {
         $driver = $this->getSession()->getDriver();
         if (!($driver instanceof \Behat\Mink\Driver\Selenium2Driver)) {
@@ -56,12 +78,12 @@ class DiffyContext extends MinkContext
         $screenshot = $this->getSession()->getDriver()->getScreenshot();
         // Array: [0] => width, [1] => height
         $screenshotInfo = getimagesizefromstring($screenshot);
-        $filename = sprintf('%s__%s', urlencode($path), $screenshotInfo[0]);
+        $filename = sprintf('%s__%s__%s', time(), urlencode($path), $screenshotInfo[0]);
         file_put_contents("$this->screenshotsDir/$filename.png", $screenshot);
 
         $this->screenshots[] = [
-            'file' => fopen($this->screenshotsDir . "/$filename.png", 'r'),
-            'url' => $diffyUri,
+            'file' => fopen("$this->screenshotsDir/$filename.png", 'r'),
+            'url' => $path,
             'breakpoint' => $screenshotInfo[0],
         ];
     }
@@ -77,6 +99,7 @@ class DiffyContext extends MinkContext
 
         $this->createdScreenshotIds[] = Screenshot::createCustomScreenshot($this->projectId, $this->screenshots, $screenshotName);
 
+        // Remove all screenshots from screenshotDir
         foreach (new DirectoryIterator($this->screenshotsDir) as $fileInfo) {
             if (!$fileInfo->isDot() && $fileInfo->isFile() && $fileInfo->getExtension() === 'png') {
                 unlink($fileInfo->getPathname());
