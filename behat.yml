@@ -1,0 +1,17 @@
+default:
+  context:
+    class: DiffyContext
+    parameters:
+      projectId: {your_diffy_project_id_here}
+      apiKey: {your_diffy_api_key_here}
+      screenshotsDir: screenshots
+      breakpoints: [640, 1200]
+      windowHeight: 2000
+  extensions:
+    Behat\MinkExtension\Extension:
+      base_url: https://diffy.website
+      goutte: ~
+      javascript_session: selenium2
+      browser_name: chrome
+      selenium2:
+        wd_host: "http://localhost:4444/wd/hub"
