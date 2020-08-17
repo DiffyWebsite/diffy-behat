@@ -32,7 +32,7 @@ parameters:
 Parameter      | Description 
 -------------- |:-------------
 projectId      | Project ID from Diffy
-apiKey         | Api key from Diffy
+apiKey         | Api key from Diffy (You can get it on this page: https://app.diffy.website/#/keys)
 screenshotsDir | Path to temporary folder where will be stored screenshots
 breakpoints    | Breakpoints array (they should be available in the Diffy project)
 windowHeight   | Height of screenshots 
