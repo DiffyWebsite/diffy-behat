@@ -2,8 +2,8 @@ default:
   context:
     class: DiffyContext
     parameters:
-      projectId: 2984
-      apiKey: 68171ec1ecc9f82210ffbf4a90438104
+      projectId: {your_diffy_project_id_here}
+      apiKey: {your_diffy_api_key_here}
       screenshotsDir: screenshots
       breakpoints: [640, 1200]
       windowHeight: 2000

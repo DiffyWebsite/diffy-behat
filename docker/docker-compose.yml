@@ -17,20 +17,20 @@ services:
     environment:
       - HUB_HOST=selenium-hub
 
-  firefox:
-    image: selenium/node-firefox:4.0.0-alpha-6-20200721
-    volumes:
-      - /dev/shm:/dev/shm
-    depends_on:
-      - selenium-hub
-    environment:
-      - HUB_HOST=selenium-hub
-
-  opera:
-    image: selenium/node-opera:4.0.0-alpha-6-20200721
-    volumes:
-      - /dev/shm:/dev/shm
-    depends_on:
-      - selenium-hub
-    environment:
-      - HUB_HOST=selenium-hub
+#  firefox:
+#    image: selenium/node-firefox:4.0.0-alpha-6-20200721
+#    volumes:
+#      - /dev/shm:/dev/shm
+#    depends_on:
+#      - selenium-hub
+#    environment:
+#      - HUB_HOST=selenium-hub
+#
+#  opera:
+#    image: selenium/node-opera:4.0.0-alpha-6-20200721
+#    volumes:
+#      - /dev/shm:/dev/shm
+#    depends_on:
+#      - selenium-hub
+#    environment:
+#      - HUB_HOST=selenium-hub
