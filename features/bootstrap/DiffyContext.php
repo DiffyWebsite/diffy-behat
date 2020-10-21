@@ -73,8 +73,10 @@ class DiffyContext extends MinkContext
             return;
         }
         
-        if (!file_exists('screenshots')) {
-            mkdir('screenshots', 0777, true);
+        if (!file_exists($this->screenshotsDir)) {
+            if (!mkdir($this->screenshotsDir, 0777, true)) {
+                return;
+            }
         }
 
         $path = str_replace($this->getMinkParameter('base_url'), '', $this->getSession()->getCurrentUrl());
