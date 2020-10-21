@@ -72,6 +72,12 @@ class DiffyContext extends MinkContext
         if (!($driver instanceof \Behat\Mink\Driver\Selenium2Driver)) {
             return;
         }
+        
+        if (!file_exists($this->screenshotsDir)) {
+            if (!mkdir($this->screenshotsDir, 0777, true)) {
+                return;
+            }
+        }
 
         $path = str_replace($this->getMinkParameter('base_url'), '', $this->getSession()->getCurrentUrl());
 
